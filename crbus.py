@@ -6,8 +6,7 @@ def crbus_read(addr):
     crbus_val = (0x3 << 79) | (addr << 65)
     ipc.irdrscan(glm0, 0xa8, 83, None, crbus_val, False)
     val = ipc.irdrscan(glm0, 0xa9, 83)
-    data = (val & ((1 <<  0x41) - 1)) >> 1
-    return data
+    return (val & ((1 <<  0x41) - 1)) >> 1
 
 def crbus_write(addr, val):
     glm0 = ipc.devs.glm_module0
