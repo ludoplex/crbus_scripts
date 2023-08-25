@@ -18,11 +18,11 @@ def ms_array_dump(array_sel, size):
     str_line = ""
     for fast_addr in range(0, size):
         if fast_addr and fast_addr % 4 == 0:
-print(f"{(fast_addr // 4 - 1) * 4:04x}: {str_line}")
+            print(f"{(fast_addr // 4 - 1) * 4:04x}: {str_line}")
             str_line = ""
         val = ldat_array_read(0x6a0, array_sel, 0, 0, fast_addr)
         str_line += " %012x" % val
-print(f"{(fast_addr // 4) * 4:04x}: {str_line}")
+            print(f"{(fast_addr // 4) * 4:04x}: {str_line}")
 
 def ms_rom_dump():
     ms_array_dump(0, 0x8000)
